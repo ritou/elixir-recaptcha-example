@@ -9,6 +9,9 @@
 
     <title>Hello RecaptchaExample!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+    <!-- for reCAPTCHA v3 -->
+    <script src='https://www.google.com/recaptcha/api.js?render=6Ldiq2AUAAAAAHBlAHQOWK2xH3UghFoI6ebfOQ_2'></script>
   </head>
 
   <body>
@@ -31,5 +34,12 @@
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script>
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6Ldiq2AUAAAAAHBlAHQOWK2xH3UghFoI6ebfOQ_2', {action: 'action_name'}).then(function(token) {
+          alert(token)
+        });
+      });
+    </script>
   </body>
 </html>
