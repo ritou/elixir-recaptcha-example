@@ -64,4 +64,10 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
+
+# NOTE: dummy config
+config :recaptcha_example,
+  recaptcha_site_key: "",
+  recaptcha_secret: ""
+
 import_config "prod.secret.exs"

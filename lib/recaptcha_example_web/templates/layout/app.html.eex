@@ -11,33 +11,27 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
     <!-- for reCAPTCHA v3 -->
-    <script src='https://www.google.com/recaptcha/api.js?render=6Ldiq2AUAAAAAHBlAHQOWK2xH3UghFoI6ebfOQ_2'></script>
+    <script src='https://www.google.com/recaptcha/api.js?render=<%= @config.recaptcha_site_key %>'></script>
   </head>
 
   <body>
     <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
-        <%= render @view_module, @view_template, assigns %>
+      <%= render @view_module, @view_template, assigns %>
       </main>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <!-- for reCAPTCHA v3 -->
     <script>
       grecaptcha.ready(function() {
-        grecaptcha.execute('6Ldiq2AUAAAAAHBlAHQOWK2xH3UghFoI6ebfOQ_2', {action: 'action_name'}).then(function(token) {
-          alert(token)
+        grecaptcha.execute('<%= @config.recaptcha_site_key %>', {action: 'sample'}).then(function(token) {
+          document.getElementById("recaptcha_token").value = token;
+          document.getElementById("submit").disabled=false;
         });
       });
     </script>

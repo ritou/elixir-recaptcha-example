@@ -16,7 +16,8 @@ defmodule RecaptchaExampleWeb.Router do
   scope "/", RecaptchaExampleWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get  "/", PageController, :index
+    post "/", PageController, :recaptcha
   end
 
   # Other scopes may use custom stacks.
