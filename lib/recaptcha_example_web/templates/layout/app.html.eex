@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>reCAPTCHA v3 Example!</title>
+    <title>reCAPTCHA v3 Example</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
     <!-- for reCAPTCHA v3 -->
